@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import md5 from 'crypto-js/md5';
 import { connect } from 'react-redux';
 import { sendPlayerInfo } from '../actions';
+import { Navbar, Container } from 'react-bootstrap';
 
 class Header extends Component {
   render() {
@@ -12,15 +13,21 @@ class Header extends Component {
 
     return (
       <header className="main-header">
-        <div className="header-div">
-          <img data-testid="header-profile-picture" src={ gravatarAvatar } alt="Player" />
-          <h2 data-testid="header-player-name">
-            {`Jogador: ${name}`}
-          </h2>
-          <h2 data-testid="header-score">
-            { `Pontuação: ${score}` }
-          </h2>
-        </div>
+        <Navbar bg="light" fixed="top">
+          <Container>
+            <img data-testid="header-profile-picture" src={ gravatarAvatar } alt="Player" />
+            <Navbar.Brand>
+              <h2 data-testid="header-player-name">
+                {`Jogador: ${name}`}
+              </h2>
+            </Navbar.Brand>
+            <Navbar.Brand>
+              <h2 data-testid="header-score">
+                { `Pontuação: ${score}` }
+              </h2>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
       </header>
     );
   }

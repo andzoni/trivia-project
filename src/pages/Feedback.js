@@ -4,21 +4,33 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FeedbackMSG from '../components/FeedbackMSG';
 import Header from '../components/Header';
+import { Button, Card } from 'react-bootstrap';
 
 class Feedback extends React.Component {
   render() {
     const { score, assertions } = this.props;
     return (
-      <div className="feedback-main">
+      <>
         <Header />
-        <FeedbackMSG score={ score } assertions={ assertions } />
-        <button type="button" data-testid="btn-play-again">
-          <Link to="/ranking">Ranking &#127942;</Link>
-        </button>
-        <button type="button" data-testid="btn-play-again">
-          <Link to="/play">Jogar Novamente 🗘</Link>
-        </button>
-      </div>
+        <br/>
+        <br/>
+        <br/>
+        <Card className="text-center">
+          <Card.Body>
+            <Card.Text>
+              <FeedbackMSG score={ score } assertions={ assertions } />
+            </Card.Text>
+            <Button variant="dark" type="button" data-testid="btn-play-again">
+              <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/ranking">Ranking &#127942;</Link>
+            </Button>
+          </Card.Body>
+          <Card.Footer>
+            <Button variant="dark" type="button" data-testid="btn-play-again">
+              <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/play">Jogar Novamente</Link>
+            </Button>
+          </Card.Footer>
+        </Card>
+      </>
     );
   }
 }

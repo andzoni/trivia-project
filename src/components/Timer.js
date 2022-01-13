@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
 
 const TIME = 30;
 const INITIAL_TIME = {
@@ -64,13 +65,14 @@ class Timer extends Component {
       <div>
         { time }
         {time === 0 && (
-          <button
+          <Button
+            variant="dark"
             type="button"
             data-testid="btn-next"
             onClick={ this.resetTime }
           >
             Próxima
-          </button>)}
+          </Button>)}
       </div>
     );
   }

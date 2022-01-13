@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { sendPlayerInfo, sendUserInfo } from '../actions';
 import { TokenApi } from '../services';
+import { Button, Form, Navbar, Container, Nav, Row, Col, FormControl } from 'react-bootstrap';
+
+
 
 class Login extends React.Component {
   constructor() {
@@ -66,36 +69,64 @@ class Login extends React.Component {
     }
     return (
       <>
-        <form className="forms" onSubmit={ this.formSubmit }>
-          <label htmlFor="name">
-            <input
-              id="name"
-              type="text"
-              data-testid="input-player-name"
-              placeholder="Name"
-              onChange={ this.validateName }
-            />
-          </label>
-          <label htmlFor="login">
-            <input
-              id="login"
-              type="text"
-              data-testid="input-gravatar-email"
-              placeholder="Email"
-              onChange={ this.validateEmail }
-            />
-          </label>
-          <button
-            disabled={ authEmail || authName }
-            type="submit"
-            data-testid="btn-play"
-          >
-            Jogar
-          </button>
-        </form>
-        <button type="button" data-testid="btn-settings">
-          <Link to="/config">Configurações</Link>
-        </button>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+        <Container>
+          <Navbar.Brand href="/">
+            <h3>Trivia Game</h3>
+          </Navbar.Brand>
+              <Nav className="me-auto">
+                <Form onSubmit={ this.formSubmit }>
+                  <Row className="align-items-center">
+                    <Col xs="auto">
+                      <Form.Label htmlFor="name" visuallyHidden>
+                        Name
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        data-testid="input-player-name"
+                        className="mb-2"
+                        id="name"
+                        placeholder="Name"
+                        onChange={ this.validateName }
+                      />
+                    </Col>
+                    <Col xs="auto">
+                      <Form.Label htmlFor="login" visuallyHidden>
+                        Login
+                      </Form.Label>
+                      <FormControl
+                        className="mb-2" 
+                        id="login"
+                        type="text"
+                        data-testid="input-gravatar-email" 
+                        placeholder="Email"
+                        onChange={ this.validateEmail }
+                      />
+                    </Col>
+                    <Col xs="auto">
+                      <Button
+                        variant="light" 
+                        disabled={ authEmail || authName }
+                        type="submit"
+                        data-testid="btn-play"
+                        >
+                        Jogar
+                      </Button>
+                    </Col>
+                  </Row>
+                </Form>
+              </Nav>
+              <Nav>
+              <Button
+                variant="light"
+                type="button">
+              <Nav.Link
+                style={{ color: 'inherit', textDecoration: 'inherit'}} 
+                href="/config">Configurações</Nav.Link>
+              </Button>
+              </Nav>
+        </Container>
+      </Navbar>
       </>
     );
   }

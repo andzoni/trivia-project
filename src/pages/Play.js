@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import { fetchURL, loadFromLocalStaorage, saveToLocalStorage } from '../services';
 import { sendPlayerInfo } from '../actions';
 import Timer from '../components/Timer';
+import { Card } from 'react-bootstrap';
 
 const correctAnswer = 'correct-answer';
 const MAX_QUESTIONS = 5;
@@ -105,27 +106,26 @@ class Play extends Component {
     }
     const { results } = questions;
     return (
-      <div className="play-main">
+      <>
         <Header />
-        <div className="body-div">
-          <div className="play-question">
-            <section className="play-question-board">
-              <h2 data-testid="question-category">
-                { results[questionIndex].category }
-              </h2>
-              <p data-testid="question-text">
-                { results[questionIndex].question }
-              </p>
-            </section>
-            <div className="play-question-answers">
-              <div className="playquestion-answers-options">
-                { this.handleAnswers(results[questionIndex]) }
-              </div>
-              <Timer nextQuestion={ this.nextQuestion } onChange={ this.handleButton } />
-            </div>
-          </div>
-        </div>
-      </div>
+        <Card className="text-center">
+          <Card.Header>Featured</Card.Header>
+          <Card.Body>
+            <Card.Title>{ results[questionIndex].category }</Card.Title>
+            <Card.Text>
+              { results[questionIndex].question }
+            </Card.Text>
+          </Card.Body>
+          <Card.Body>
+            <Card.Text>
+            { this.handleAnswers(results[questionIndex]) }
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer className="text-muted">
+            <Timer nextQuestion={ this.nextQuestion } onChange={ this.handleButton } />
+          </Card.Footer>
+        </Card>
+      </>
     );
   }
 }
