@@ -68,21 +68,17 @@ class Login extends React.Component {
       return <Redirect to="/play" />;
     }
     return (
-      <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
-        <Container>
-          <Row>
-          <Col xs lg="2">
+      <Navbar className="me-auto" expand="lg" bg="dark" variant="dark" fixed="top">
+        <Container xs="auto">
           <Navbar.Brand href="/">
             <h3>Trivia Game</h3>
           </Navbar.Brand>
-          </Col>
-          
-          <Col xs="auto">
-            <Nav className="me-auto">
+        </Container>
+        <Container xs={8}> 
+            <Nav>
               <Form onSubmit={ this.formSubmit }>
-                <Row className="align-items-center">
-                  <Col xs="auto">
+                <Row>
+                  <Col xs={5}>
                     <Form.Label htmlFor="name" visuallyHidden>
                       Name
                     </Form.Label>
@@ -95,7 +91,7 @@ class Login extends React.Component {
                       onChange={ this.validateName }
                     />
                   </Col>
-                  <Col xs="auto">
+                  <Col xs={5}>
                     <Form.Label htmlFor="login" visuallyHidden>
                       Login
                     </Form.Label>
@@ -121,22 +117,23 @@ class Login extends React.Component {
                 </Row>
               </Form>
             </Nav>
-          </Col>
-          <Col xs lg="2">
-            <Nav>
+          </Container>
+
+          <Container xs="auto">
+            <Col xs={8}>
+            <br/>
+            </Col>
             <Button
               variant="light"
               type="button">
-            <Nav.Link
-              style={{ color: 'inherit', textDecoration: 'inherit'}} 
-              href="/config">Configurações</Nav.Link>
+              <Nav.Link 
+                xs={4}
+                style={{ color: 'inherit', textDecoration: 'inherit'}} 
+                href="/config">Configurações
+              </Nav.Link>
             </Button>
-            </Nav>
-          </Col>
-          </Row>
-        </Container>
+          </Container>
       </Navbar>
-      </>
     );
   }
 }

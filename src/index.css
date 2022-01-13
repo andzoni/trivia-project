@@ -5,7 +5,8 @@ body::before {
 }
 
 body {
-  background: url('./trivia.png') repeat fixed center ;
+  background: url('./trivia.png') no-repeat center fixed;
+  background-size: 100%;
   text-align: center;
   align-items: center;
   align-content: center;
