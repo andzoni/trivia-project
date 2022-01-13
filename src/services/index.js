@@ -20,3 +20,9 @@ export const fetchURL = async (url) => {
   const answer = await requestURL.json();
   return (answer);
 };
+
+export const decodeHtml = (html) => {
+  const txt = document.createElement('textarea');
+  txt.innerHTML = html;
+  return txt.value;
+};

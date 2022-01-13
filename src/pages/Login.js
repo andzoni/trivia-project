@@ -71,60 +71,69 @@ class Login extends React.Component {
       <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
         <Container>
+          <Row>
+          <Col xs lg="2">
           <Navbar.Brand href="/">
             <h3>Trivia Game</h3>
           </Navbar.Brand>
-              <Nav className="me-auto">
-                <Form onSubmit={ this.formSubmit }>
-                  <Row className="align-items-center">
-                    <Col xs="auto">
-                      <Form.Label htmlFor="name" visuallyHidden>
-                        Name
-                      </Form.Label>
-                      <Form.Control
-                        type="text"
-                        data-testid="input-player-name"
-                        className="mb-2"
-                        id="name"
-                        placeholder="Name"
-                        onChange={ this.validateName }
-                      />
-                    </Col>
-                    <Col xs="auto">
-                      <Form.Label htmlFor="login" visuallyHidden>
-                        Login
-                      </Form.Label>
-                      <FormControl
-                        className="mb-2" 
-                        id="login"
-                        type="text"
-                        data-testid="input-gravatar-email" 
-                        placeholder="Email"
-                        onChange={ this.validateEmail }
-                      />
-                    </Col>
-                    <Col xs="auto">
-                      <Button
-                        variant="light" 
-                        disabled={ authEmail || authName }
-                        type="submit"
-                        data-testid="btn-play"
-                        >
-                        Jogar
-                      </Button>
-                    </Col>
-                  </Row>
-                </Form>
-              </Nav>
-              <Nav>
-              <Button
-                variant="light"
-                type="button">
-              <Nav.Link
-                style={{ color: 'inherit', textDecoration: 'inherit'}} 
-                href="/config">Configurações</Nav.Link>
-              </Button>
-              </Nav>
+          </Col>
+          
+          <Col xs="auto">
+            <Nav className="me-auto">
+              <Form onSubmit={ this.formSubmit }>
+                <Row className="align-items-center">
+                  <Col xs="auto">
+                    <Form.Label htmlFor="name" visuallyHidden>
+                      Name
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      data-testid="input-player-name"
+                      className="mb-2"
+                      id="name"
+                      placeholder="Name"
+                      onChange={ this.validateName }
+                    />
+                  </Col>
+                  <Col xs="auto">
+                    <Form.Label htmlFor="login" visuallyHidden>
+                      Login
+                    </Form.Label>
+                    <FormControl
+                      className="mb-2" 
+                      id="login"
+                      type="text"
+                      data-testid="input-gravatar-email" 
+                      placeholder="Email"
+                      onChange={ this.validateEmail }
+                    />
+                  </Col>
+                  <Col xs="auto">
+                    <Button
+                      variant="light" 
+                      disabled={ authEmail || authName }
+                      type="submit"
+                      data-testid="btn-play"
+                      >
+                      Jogar
+                    </Button>
+                  </Col>
+                </Row>
+              </Form>
+            </Nav>
+          </Col>
+          <Col xs lg="2">
+            <Nav>
+            <Button
+              variant="light"
+              type="button">
+            <Nav.Link
+              style={{ color: 'inherit', textDecoration: 'inherit'}} 
+              href="/config">Configurações</Nav.Link>
+            </Button>
+            </Nav>
+          </Col>
+          </Row>
         </Container>
       </Navbar>
       </>

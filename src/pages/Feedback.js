@@ -24,9 +24,21 @@ class Feedback extends React.Component {
               <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/ranking">Ranking &#127942;</Link>
             </Button>
           </Card.Body>
-          <Card.Footer>
+          <Card.Text>
             <Button variant="dark" type="button" data-testid="btn-play-again">
-              <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/play">Jogar Novamente</Link>
+              <Link 
+                style={{ color: 'inherit', textDecoration: 'inherit'}} 
+                to="/play">Jogar Novamente
+              </Link>
+            </Button>
+          </Card.Text>
+          <Card.Footer>
+            <Button variant="dark">
+              <Link 
+                style={{ color: 'inherit', textDecoration: 'inherit'}} 
+                to="/" 
+                data-testid="btn-go-home">Deslogar ⏼
+              </Link>
             </Button>
           </Card.Footer>
         </Card>

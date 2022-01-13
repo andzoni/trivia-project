@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
-import { fetchURL, loadFromLocalStaorage, saveToLocalStorage } from '../services';
+import { fetchURL, loadFromLocalStaorage, saveToLocalStorage, decodeHtml } from '../services';
 import { sendPlayerInfo } from '../actions';
 import Timer from '../components/Timer';
-import { Card } from 'react-bootstrap';
+import { Card, Container, Row, Col } from 'react-bootstrap';
 
 const correctAnswer = 'correct-answer';
 const MAX_QUESTIONS = 5;
@@ -108,23 +108,41 @@ class Play extends Component {
     return (
       <>
         <Header />
-        <Card className="text-center">
-          <Card.Header>Featured</Card.Header>
-          <Card.Body>
-            <Card.Title>{ results[questionIndex].category }</Card.Title>
-            <Card.Text>
-              { results[questionIndex].question }
-            </Card.Text>
-          </Card.Body>
-          <Card.Body>
-            <Card.Text>
-            { this.handleAnswers(results[questionIndex]) }
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer className="text-muted">
-            <Timer nextQuestion={ this.nextQuestion } onChange={ this.handleButton } />
-          </Card.Footer>
-        </Card>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <Container>
+          <Row>
+            <Col>
+              <br/> 
+            </Col>
+            <Col>
+              <Card className="text-center">
+                <Card.Header>Featured</Card.Header>
+                <Card.Body>
+                  <Card.Title>{ results[questionIndex].category }</Card.Title>
+                  <Card.Text>
+                    { decodeHtml(results[questionIndex].question) }
+                  </Card.Text>
+                </Card.Body>
+                <Card.Body>
+                  <Card.Text>
+                  { this.handleAnswers(results[questionIndex]) }
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer className="text-muted">
+                  <Timer nextQuestion={ this.nextQuestion } onChange={ this.handleButton } />
+                </Card.Footer>
+              </Card>
+            </Col>
+            <Col>
+              <br/>
+            </Col>
+          </Row>
+        </Container>
       </>
     );
   }

@@ -15,6 +15,11 @@ class Ranking extends React.Component {
               lista de jogadores
             </ol>
           </Card.Text>
+          <Card.Text>
+            <Button variant="dark" type="button" data-testid="btn-play-again">
+              <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/play">Jogar Novamente</Link>
+            </Button>
+          </Card.Text>
         </Card.Body>
         <Card.Footer>
           <Button variant="dark">

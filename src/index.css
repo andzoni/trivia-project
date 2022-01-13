@@ -6,7 +6,12 @@ body::before {
 
 body {
   background: url('./trivia.png') repeat fixed center ;
+  text-align: center;
+  align-items: center;
+  align-content: center;
 }
+
+
 
 @media(min-width: 768px) {
   .news-input {
