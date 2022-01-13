@@ -58,7 +58,7 @@ class Play extends Component {
         disabled={ button }
         onClick={ this.handleButtonStyle }
       >
-        {answer}
+        {decodeHtml(answer)}
       </button>))
     );
   }
@@ -123,7 +123,7 @@ class Play extends Component {
               <Card className="text-center">
                 <Card.Header>Featured</Card.Header>
                 <Card.Body>
-                  <Card.Title>{ results[questionIndex].category }</Card.Title>
+                  <Card.Title>{ decodeHtml(results[questionIndex].category) }</Card.Title>
                   <Card.Text>
                     { decodeHtml(results[questionIndex].question) }
                   </Card.Text>
