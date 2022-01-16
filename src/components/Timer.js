@@ -71,7 +71,7 @@ class Timer extends Component {
             data-testid="btn-next"
             onClick={ this.resetTime }
           >
-            Próxima
+            Next
           </Button>)}
       </div>
     );

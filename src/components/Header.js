@@ -18,12 +18,12 @@ class Header extends Component {
             <img data-testid="header-profile-picture" src={ gravatarAvatar } alt="Player" />
             <Navbar.Brand>
               <h2 data-testid="header-player-name">
-                {`Jogador: ${name}`}
+                {`Player: ${name}`}
               </h2>
             </Navbar.Brand>
             <Navbar.Brand>
               <h2 data-testid="header-score">
-                { `Pontuação: ${score}` }
+                { `Points: ${score}` }
               </h2>
             </Navbar.Brand>
           </Container>
